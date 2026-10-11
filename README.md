@@ -373,15 +373,37 @@ are not changed by HD Switch; they stay installed exactly as they were.
 To update: replace `mods\HDToggle.dll` and the `Interface\AddOns\HDSwitch` folder,
 then restart the game.
 
+## Source
+
+The code that builds `HDToggle.dll` is in [`dll/`](dll/). That code is MIT licensed.
+See [dll/LICENSE](dll/LICENSE).
+
+```sh
+./build.sh
+```
+
+`build.sh` needs Python 3 and `i686-w64-mingw32-gcc`. It writes `dll/HDToggle.dll`.
+Copy that file into the game's `mods` folder. The first install still needs the
+`dlls.txt` line and one restart, as described above.
+
+`./test/dll.sh` rebuilds the DLL and runs the test harness under Wine. Set `WINE`
+if `wine` is not on your `PATH`. Set `LUA50` to a Lua 5.0 interpreter to also run
+the glue script tests.
+
 ## License
+
+The DLL source (`dll/`, `tools/embed_lua.py`, `build.sh` and `test/`) is under the
+MIT License. See [dll/LICENSE](dll/LICENSE).
+
+The installer and the release packages stay under these terms:
 
 Copyright © 2026 Mustafa Yaman. All rights reserved.
 
-You may download and use HD Switch on OctoWoW. You may not redistribute it, modify it,
-or use it with other servers without permission.
+You may download and use the installer and the release packages on OctoWoW. You may
+not redistribute them, modify them, or use them with other servers without permission.
 
-This license covers HD Switch and the installer only. The optional packs contain other
-people's work under their own terms; see [Packs we modified](#packs-we-modified).
+The optional packs contain other people's work under their own terms; see
+[Packs we modified](#packs-we-modified).
 
 HD Switch is a fan-made tool. It is not affiliated with OctoWoW, Project Reforged,
 Twow Raid Visuals or Blizzard Entertainment. World of Warcraft is a trademark of
