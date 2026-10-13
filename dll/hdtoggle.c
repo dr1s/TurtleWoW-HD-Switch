@@ -628,23 +628,11 @@ static uint32_t domain_hash(const char *h)
 	return name_hash(dom, strlen(dom));
 }
 
-/* 1: allowed. An unknown address or a realm not chosen yet is allowed. */
+/* 1: allowed. The server restriction has been removed so the DLL works on all servers. */
 static int server_verdict(const char *address, const char *realm)
 {
-	char host[128] = "";
-	if (address)
-		host_of(address, host, sizeof host);
-	uint32_t dom = domain_hash(host);
-	if (dom == OK_DOMAIN)
-		return 1;
-	if (hash_listed(dom, BLOCKED_DOMAINS, sizeof BLOCKED_DOMAINS / sizeof BLOCKED_DOMAINS[0]))
-		return 0;
-	if (realm && realm[0]) {
-		uint32_t r = name_hash(realm, strlen(realm));
-		if (!hash_listed(r, OK_REALMS, sizeof OK_REALMS / sizeof OK_REALMS[0]) &&
-		    hash_listed(r, BLOCKED_REALMS, sizeof BLOCKED_REALMS / sizeof BLOCKED_REALMS[0]))
-			return 0;
-	}
+	(void)address;
+	(void)realm;
 	return 1;
 }
 
