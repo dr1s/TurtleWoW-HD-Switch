@@ -6,10 +6,6 @@ and without logging out. Toggle them all with one click, or pick them one by one
 Textures, characters (faces, skin, hair, gear), creatures, buildings, doodads,
 the world, spell effects and sounds all switch live.
 
-> **OctoWoW only.** HD Switch works only while you are connected to
-> [OctoWoW](https://octowow.st). On any other server it locks itself: every pack stays as
-> installed and nothing can be toggled.
-
 ---
 
 ## Features
@@ -42,7 +38,6 @@ the world, spell effects and sounds all switch live.
 
 | | |
 |---|---|
-| Server | **OctoWoW** |
 | Client | The OctoWoW client: World of Warcraft **1.12.1, build 5875** |
 | DLL loader | [VanillaFixes](https://github.com/hannesmann/vanillafixes) (loads the DLLs listed in `dlls.txt`) |
 | HD packs | Installed as `Data\patch-<letter>.mpq` (see the tested packs below) |
